@@ -3,28 +3,23 @@
 int main(void)
 {
     int n;
-    long total = 0;
-    int i = 1;
-    scanf("%d", &n);
+    if (scanf("%d", &n) != 1)
+    {
+        return 0;
+    }
+
     if (n < 0)
     {
         printf("NG");
         return 0;
     }
-    while (1)
+
+    long total = 0;
+    for (long even = 2; even <= n; even += 2)
     {
-        if (i > n)
-        {
-            break;
-        }
-        if (i % 2 != 0)
-        {
-            i++;
-            continue;
-        }
-        total += i;
-        i++;
+        total += even;
     }
+
     printf("%ld", total);
     return 0;
 }
